@@ -3,6 +3,9 @@
 #include <string>
 #include <iostream>
 #include "product.h"
+#include "book.h"
+#include "movie.h"
+#include "clothing.h"
 
 class ProductParser
 {

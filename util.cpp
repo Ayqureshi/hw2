@@ -16,14 +16,55 @@ std::string convToLower(std::string src)
 std::set<std::string> parseStringToWords(string rawWords)
 {
 
+	std::set<std::string> temp;
 
+	for(unsigned int i = 0; i < rawWords.length(); i++){
+		if(ispunct(rawWords[i])){
+			rawWords[i] = ' ';
+		}
+	}
+	istringstream ss(rawWords);
+	string word;
+	string temp_word;
+	while(ss >> word){
+		if(word.length() > 1){
+			trim(word);
+			temp.insert(word);
+			temp.insert(convToLower(word));
+		}
+	}
 
+	// istringstream ss(rawWords);
+	// string word;
+	// string temp_word;
+	// while(ss >> word){
+	// 	if(word.length() > 1){
+	// 		for(unsigned int i=0;i<word.length();i++){
+	// 			if(!ispunct(word[i])){
+	// 				temp_word.push_back(word[i]);
+	// 			}
+	// 			else{
+	// 				if(temp_word.size()>1){
+	// 					convToLower(temp_word);
+	// 					temp.insert(temp_word);
+	// 				}
+	// 				temp_word = "";	
+	// 			}
+	// 		}
+	// 	}
+	// }
+return temp;
+	
+		
+    //go throught the string and when it gets to a space stop
+    //save that to a new string
+    //create a dictionary with the raw word and all the new strings
+    //in addition to making the rawWord a key
 
-
-
-
-
-
+    //Essentially make a dictionary of the string
+    // iterate through the string and set each word
+    // into a key for that dictionary 
+    // in addition to making the rawWord a key
 
 }
 

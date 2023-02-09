@@ -1,10 +1,9 @@
 #include <iostream>
 #include <sstream>
 #include "product_parser.h"
-#include "book.h"
-#include "clothing.h"
-#include "movie.h"
 #include "util.h"
+
+
 using namespace std;
 
 
@@ -130,12 +129,12 @@ std::string ProductBookParser::categoryID()
  */
 Product* ProductBookParser::makeProduct()
 {
-
-
+    Product* novel = new Book(categoryID(),prodName_, price_, qty_,isbn_,author_);
+    return novel;
 }
 
 
-ProductClothingParser::ProductClothingParser()
+ProductClothingParser::ProductClothingParser():ProductParser()
 {
 }
 
@@ -185,14 +184,13 @@ std::string ProductClothingParser::categoryID()
  */
 Product* ProductClothingParser::makeProduct()
 {
-
-
-
+    Product* shirt = new Clothing(categoryID(),prodName_, price_,qty_,size_,brand_);
+    return shirt;
 }
 
 
 
-ProductMovieParser::ProductMovieParser()
+ProductMovieParser::ProductMovieParser():ProductParser()
 {
 }
 
@@ -245,6 +243,6 @@ std::string ProductMovieParser::categoryID()
  */
 Product* ProductMovieParser::makeProduct()
 {
-
-
+    Product* jaws = new Movie(categoryID(),prodName_, price_,qty_,rating_,genre_);
+    return jaws;
 }
